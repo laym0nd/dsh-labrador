@@ -60,7 +60,7 @@ check('an uncalibrated frame fills the stage', frameStyle(undefined, STAGE).heig
 const CANVAS = { width: 445, height: 328 };
 check('the hit area follows the dog, not the canvas',
   hitStyle({ left: 165, top: 12, width: 115, height: 300 }, CANVAS).width === 115);
-check('without a manifest he is still touchable', hitStyle(null, CANVAS).width === CANVAS.width);
+check('without a manifest she is still touchable', hitStyle(null, CANVAS).width === CANVAS.width);
 
 // --- host half ------------------------------------------------------------
 const host = await import(pathToFileURL(`${ROOT}/lib/index.js`).href);
@@ -123,7 +123,7 @@ for (const gone of ['lick', 'rest', 'lie-away']) {
   check(`deleted action "${gone}" is absent`, byId.get(gone) === undefined);
 }
 
-// Every normalised frame must share one canvas: that is what stops him jumping.
+// Every normalised frame must share one canvas: that is what stops her jumping.
 const shapes = new Set((library?.actions ?? []).flatMap((a) => a.frames.map((f) => `${f.width}x${f.height}`)));
 check('every frame shares one canvas', shapes.size === 1, [...shapes].join(' '));
 check('frames carry pixel dimensions', /^\d+x\d+$/.test([...shapes][0] ?? ''));
@@ -139,6 +139,10 @@ const frameUrl = byId.get('sit')?.frames?.[0]?.url ?? '';
 const frameState = await request(frameUrl);
 check('a promised frame is served', frameState.status === 200 && frameState.headers?.['content-type'] === 'image/png',
   `${frameState.status} ${frameState.headers?.['content-type']}`);
+// Frames are immutable, and her pose is swapped several times a second during a
+// throw: "no-cache" would make the browser revalidate on every single swap.
+check('frames are cached hard', /immutable/.test(frameState.headers?.['cache-control'] ?? ''),
+  frameState.headers?.['cache-control']);
 
 console.log(failures === 0 ? '\nSmoke: all checks passed' : `\nSmoke: ${failures} failure(s)`);
 process.exit(failures === 0 ? 0 : 1);

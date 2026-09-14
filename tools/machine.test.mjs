@@ -80,7 +80,7 @@ test('waking is a transition to idle, never a jump into another pose', () => {
   state = step(state, CTX, { type: 'click' });
   assert.equal(state.phase, 'idle', 'waking must settle first');
   assert.equal(LIBRARY.find((a) => a.id === state.actionId)?.category, 'idle',
-    'he wakes into a resting pose, not straight into a reaction');
+    'she wakes into a resting pose, not straight into a reaction');
 });
 
 test('a click while idle plays a click action', () => {
@@ -143,16 +143,16 @@ test('unknown events are ignored rather than guessed at', () => {
 
 // A resting dog with no pose renders as nothing at all, which looks like a fault.
 // These four exist because that is exactly what happened on screen.
-test('the very first tick gives him something to show', () => {
+test('the very first tick gives her something to show', () => {
   let state = initialState(() => 0.5);
-  assert.equal(state.actionId, null, 'nothing is chosen before he has ticked');
+  assert.equal(state.actionId, null, 'nothing is chosen before she has ticked');
   state = tick(state, 200);
   assert.equal(state.phase, 'idle');
   assert.ok(state.actionId !== null, 'idle must hold a resting pose');
   assert.equal(LIBRARY.find((a) => a.id === state.actionId).category, 'idle');
 });
 
-test('an action ending does not leave him invisible', () => {
+test('an action ending does not leave her invisible', () => {
   let state = tick(initialState(() => 0.5), 20000);
   assert.equal(state.phase, 'acting');
   state = tick(state, 1200);
@@ -182,29 +182,29 @@ test('a resting dog is never left without a pose', () => {
 
 test('a dog with a pose keeps it while being handled', () => {
   // The same fault as an invisible idle: clearing the pose mid-drag would make
-  // him vanish the moment he is picked up.
+  // her vanish the moment she is picked up.
   const holding = { ...initialState(() => 0.5), phase: 'idle', actionId: 'sit', frameIndex: 0 };
   const dragged = step(holding, CTX, { type: 'dragStart' });
-  assert.equal(dragged.actionId, 'sit', 'still holding his pose while held');
+  assert.equal(dragged.actionId, 'sit', 'still holding her pose while held');
   const flying = step(dragged, CTX, { type: 'dragEnd', speed: 1200 });
   assert.equal(flying.phase, 'thrown');
-  assert.equal(flying.actionId, 'sit', 'still holding his pose in flight');
+  assert.equal(flying.actionId, 'sit', 'still holding her pose in flight');
 });
 
 test('landing settles a thrown dog, and only a thrown one', () => {
   const thrown = { ...initialState(() => 0.5), phase: 'thrown', actionId: null, phaseMs: 0 };
   const landed = step(thrown, CTX, { type: 'landed' });
   assert.equal(landed.phase, 'idle');
-  assert.ok(landed.actionId !== null, 'he lands into a pose, not into nothing');
+  assert.ok(landed.actionId !== null, 'she lands into a pose, not into nothing');
 
   const idle = initialState(() => 0.5);
   assert.deepEqual(step(idle, CTX, { type: 'landed' }), idle);
 });
 
-test('a lost animation frame cannot strand him in the air', () => {
+test('a lost animation frame cannot strand her in the air', () => {
   const thrown = { ...initialState(() => 0.5), phase: 'thrown', actionId: null, phaseMs: 0 };
   assert.equal(tick(thrown, 1000).phase, 'thrown', 'the backstop must not fire early');
-  assert.equal(tick(thrown, 6000).phase, 'idle', 'the backstop must eventually rescue him');
+  assert.equal(tick(thrown, 6000).phase, 'idle', 'the backstop must eventually rescue her');
 });
 
 const { hitStyle, integrate, THROW_SPEED: SPEED } = client.__internals;
@@ -217,7 +217,7 @@ test('the hit area follows the dog, not the canvas', () => {
   assert.notEqual(style.width, CANVAS.width, 'the transparent margin must not be clickable');
 });
 
-test('without a manifest he is still touchable', () => {
+test('without a manifest she is still touchable', () => {
   const style = hitStyle(null, CANVAS);
   assert.equal(style.width, CANVAS.width);
   assert.equal(style.height, CANVAS.height);
@@ -227,8 +227,8 @@ test('a throw rises and falls under gravity', () => {
   const vel = { x: 0, y: -600 };
   const bounds = { left: 0, top: 0, right: 1280, floor: 800, width: 445, height: 328 };
   const after = integrate({ x: 100, y: 400 }, vel, 0.1, bounds);
-  assert.ok(after.y < 400, 'he should have moved upward first');
-  assert.ok(vel.y > -600, 'gravity should be slowing his rise');
+  assert.ok(after.y < 400, 'she should have moved upward first');
+  assert.ok(vel.y > -600, 'gravity should be slowing her rise');
 });
 
 test('a thrown dog bounces off the floor and is never left outside the window', () => {
@@ -263,10 +263,10 @@ test('the throw threshold distinguishes a put-down from a throw', () => {
 
 // --- hitting things ---------------------------------------------------------
 
-test('a bounce swaps his face without ending the flight', () => {
+test('a bounce swaps her face without ending the flight', () => {
   const flying = { ...initialState(() => 0.5), phase: 'thrown', actionId: 'sit', phaseMs: 0 };
   const bounced = step(flying, CTX, { type: 'bounce' });
-  assert.equal(bounced.phase, 'thrown', 'he is still in the air');
+  assert.equal(bounced.phase, 'thrown', 'she is still in the air');
   assert.notEqual(bounced.actionId, 'sit', 'the impact should change the pose');
   assert.ok(LIBRARY.find((a) => a.id === bounced.actionId), 'and to something that exists');
 });
@@ -278,14 +278,14 @@ test('a bounce outside a flight is ignored', () => {
   }
 });
 
-test('repeated bounces do not strand him in the air', () => {
+test('repeated bounces do not strand her in the air', () => {
   let state = { ...initialState(() => 0.5), phase: 'thrown', actionId: 'sit', phaseMs: 0 };
   for (let i = 0; i < 20; i++) state = step(state, CTX, { type: 'bounce' });
   assert.equal(state.phase, 'thrown');
   assert.equal(step(state, CTX, { type: 'landed' }).phase, 'idle');
 });
 
-test('a bounce does not buy him extra time in the air', () => {
+test('a bounce does not buy her extra time in the air', () => {
   // Resetting the flight clock on every impact would push the rescue backstop
   // further away with each bounce, and a dog who never landed would never be
   // rescued either.
@@ -304,14 +304,14 @@ test('an impact is reported as a bounce, but resting is not', () => {
   const falling = { x: 100, y: bounds.floor - bounds.height - 2 };
   const fast = integrate(falling, { x: 0, y: 900 }, 0.016, bounds);
   assert.equal(fast.bounced, true, 'a real impact is a bounce');
-  // Already resting: gravity nudges him into the floor every frame, and that must
+  // Already resting: gravity nudges her into the floor every frame, and that must
   // not read as an endless series of bounces.
   const resting = { x: 100, y: bounds.floor - bounds.height };
   const still = integrate(resting, { x: 0, y: 0 }, 0.016, bounds);
   assert.equal(still.bounced, false, 'resting is not bouncing');
 });
 
-// --- what he says -----------------------------------------------------------
+// --- what she says -----------------------------------------------------------
 
 const { speak, applyConfig, VOCABULARY } = client.__internals;
 

@@ -42,7 +42,7 @@ Nineteen clean sprites plus one partial. Proposed assignment:
 
 ## Voice — a hard rule
 
-The dog speaks dog language and nothing else. Any text he emits is a
+The dog speaks dog language and nothing else. Any text she emits is a
 **vocalisation** — a bark, a woof, a whine, a grumble, a soft huff — never a human
 word, never a translated phrase, never a sentence. Mood is carried by *which*
 sound is chosen and by the pose played with it: a low whine with `rest` is

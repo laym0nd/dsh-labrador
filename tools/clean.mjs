@@ -1,6 +1,6 @@
 // Remove frame-spanning debris from a cut-out (e.g. the cone rim in 20-cone-face).
 // Why a structural rule rather than a geometric crop: the dog's muzzle crosses the
-// rim, so any box or ellipse would clip him. The rim, however, is the only dark
+// rim, so any box or ellipse would clip her. The rim, however, is the only dark
 // shape whose bounding box covers the whole frame.
 // Usage: node tools/clean.mjs <index> [lumaThreshold]
 import { createRequire } from 'node:module';

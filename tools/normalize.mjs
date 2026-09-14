@@ -2,8 +2,8 @@
 //
 // Why: the browser should not be doing arithmetic to make a lying dog and a
 // standing dog the same size. Baking it here means every frame has identical
-// dimensions, the dog sits on the same floor line, and his centre lands in the
-// same place — so changing pose can never make him jump or change size.
+// dimensions, the dog sits on the same floor line, and her centre lands in the
+// same place — so changing pose can never make her jump or change size.
 //
 // Source sprites are read-only: this writes new files into assets/frames/.
 import { createRequire } from 'node:module';
@@ -64,10 +64,10 @@ for (const piece of prepared) {
   console.log(`${piece.id.padEnd(12)} ${String(piece.width).padStart(4)}x${String(piece.height).padEnd(4)} -> canvas ${canvasW}x${canvasH} at (${left}, ${top})`);
 }
 
-// The manifest exists so the plugin never has to guess where the dog is. His
+// The manifest exists so the plugin never has to guess where the dog is. Her
 // interactive area is this box, not the whole canvas: the transparent margin
-// around him must stay click-through, or he would swallow clicks meant for the
-// application behind him.
+// around her must stay click-through, or she would swallow clicks meant for the
+// application behind her.
 await writeFile(
   join(OUT, 'manifest.json'),
   `${JSON.stringify({ canvas: { width: canvasW, height: canvasH }, floorY, frames: placements }, null, 2)}\n`,

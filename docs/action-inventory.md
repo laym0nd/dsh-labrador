@@ -21,7 +21,7 @@
 | # | file | what is in it | proposed action | type |
 | --- | --- | --- | --- | --- |
 | 01 | `…130401` | **Screenshot, not a photograph.** A photo viewer showing the dog standing full-body on pale floor boards, three-quarter view facing left, tongue out, tail up and blurred. Time header 2024-09-12 19:53; app toolbars top and bottom. | `stand` | full body |
-| 02 | `…130402` | Tight head close-up: lying flat, head raised toward the camera, tongue fully out licking his nose across it. | `lick` (face) | **bust** |
+| 02 | `…130402` | Tight head close-up: lying flat, head raised toward the camera, tongue fully out licking her nose across it. | `lick` (face) | **bust** |
 | 03 | `…130404` | Lying on the floor with the head down and resting between a person's dark-clad legs; eyes closed, forelegs stretched forward. | `rest` / `sleep` | full body |
 | 04 | `…130405` | Sitting, looking up at the camera with a slight head tilt, mouth closed — curious. A person lies curled asleep on a brown fluffy bed behind. | `look-up` / `curious` | full body |
 | 05 | `…130406` | Walking, mid-stride, side-on toward the left, head level, in front of the same sleeping person and bed. | `walk` | full body |
@@ -65,7 +65,7 @@
 Files 02, 08, 18 and 20 are **bust shots** — head and shoulders. Files 01, 03, 04, 09, 10, 11, 12, 19 are **full body**. You cannot put a head close-up on the same floor line as a full-body standing pose; scaled to match, a hairless giant head would sit next to a dog. The action model therefore needs a **shot type** on every action:
 
 - `body` — usable as the creature on the desktop.
-- `bust` — used for speech bubbles, notifications, the settings preview, the "he's looking at you" moment.
+- `bust` — used for speech bubbles, notifications, the settings preview, the "she's looking at you" moment.
 
 Both are valuable; they are simply not interchangeable.
 
@@ -81,7 +81,7 @@ A minor third point: file 20 carries a printed card with **readable English text
 | action | category | frames | weight | note |
 | --- | --- | --- | --- | --- |
 | `sit` | ambient | 10, 13, 11, 18 *(pick 1–2)* | 25 | the backbone pose |
-| `look-up` | ambient | 04 | 15 | the "he noticed you" pose |
+| `look-up` | ambient | 04 | 15 | the "she noticed you" pose |
 | `rest` | ambient | 03 | 12 | head down, eyes closed |
 | `lie-sofa` | ambient | 14, 15, 16 | 12 | |
 | `sleep` | ambient | 17 | 6 | |
@@ -102,4 +102,4 @@ Movement category: **empty by default.**
 2. **The cone photographs (19, 20).** Keep them, and if so as an occasional "not feeling well" action — or leave them out of the rotation entirely?
 3. **The screenshot (01).** Crop the phone UI out and use the standing pose, or discard it?
 4. **Which sitting shot is *the* sitting shot?** Five candidates, and I would rather you chose than me.
-5. **His name**, for the bubbles and the settings page.
+5. **Her name**, for the bubbles and the settings page.
