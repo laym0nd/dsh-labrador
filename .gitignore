@@ -1,0 +1,21 @@
+# Dependencies for the offline asset tools, not needed to run the plugin.
+tools/node_modules/
+.npm-cache/
+
+# The raw photographs this pet was made from, and the intermediate cut-outs and
+# crops. None of them ship: the plugin ships the normalised frames in assets/frames/.
+Raw Lab Image/
+assets/cutout/
+assets/crops/
+
+# Generated previews used while tuning the frames.
+assets/preview/
+
+# Locked directories left by a package manager run; not part of the project.
+.tools/
+
+# Editor and OS noise.
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

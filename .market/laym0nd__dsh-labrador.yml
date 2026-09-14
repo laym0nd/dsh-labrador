@@ -1,0 +1,21 @@
+# The one entry this plugin needs in the awesome-dsh-plugin registry.
+#
+# The registry takes one YAML file per plugin, and dsh-market reads the registry —
+# not the other way round. This file is ready to copy into a pull request at
+#   data/plugins/laym0nd__dsh-labrador.yml
+# with no changes at all: the name matches the repository, and the repository
+# matches the entry.
+#
+# Rules the entry has to satisfy, from the registry's contributing.md:
+#   * url must match the repository exactly
+#   * name is the link text, normally owner/repo
+#   * category must be one the registry lists; fun is where the other pets are
+#   * the description states what the plugin does, with no superlatives
+#   * a description containing ": " must be quoted, or YAML reads it as a nested key
+
+url: https://github.com/laym0nd/dsh-labrador
+name: laym0nd/dsh-labrador
+category: fun
+description:
+  en: A Labrador made of cut-out photographs who lives in the corner of the harness window, choosing what to do on his own, and able to be poked, dragged, thrown and tuned from a settings page.
+  zh: 住在 DSH 窗口角落里的一只拉布拉多：由抠图照片组成，自己决定做什么，可以点、可以拖、可以抛，还能在设置页里调整。

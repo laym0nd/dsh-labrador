@@ -1,0 +1,111 @@
+{
+  "canvas": {
+    "width": 445,
+    "height": 328
+  },
+  "floorY": 312,
+  "frames": {
+    "sit": {
+      "left": 165,
+      "top": 12,
+      "width": 115,
+      "height": 300
+    },
+    "stand": {
+      "left": 99,
+      "top": 12,
+      "width": 248,
+      "height": 300
+    },
+    "sit-c": {
+      "left": 135,
+      "top": 66,
+      "width": 176,
+      "height": 246
+    },
+    "sit-b": {
+      "left": 156,
+      "top": 48,
+      "width": 134,
+      "height": 264
+    },
+    "sit-side": {
+      "left": 144,
+      "top": 57,
+      "width": 158,
+      "height": 255
+    },
+    "look-up": {
+      "left": 64,
+      "top": 78,
+      "width": 317,
+      "height": 234
+    },
+    "sleep": {
+      "left": 134,
+      "top": 120,
+      "width": 178,
+      "height": 192
+    },
+    "lie-sofa": {
+      "left": 90,
+      "top": 132,
+      "width": 266,
+      "height": 180
+    },
+    "lie-sofa-b": {
+      "left": 53,
+      "top": 147,
+      "width": 339,
+      "height": 165
+    },
+    "sniff": {
+      "left": 162,
+      "top": 87,
+      "width": 122,
+      "height": 225
+    },
+    "cone-lying": {
+      "left": 140,
+      "top": 132,
+      "width": 165,
+      "height": 180
+    },
+    "walk": {
+      "left": 71,
+      "top": 72,
+      "width": 304,
+      "height": 240
+    },
+    "car-a": {
+      "left": 82,
+      "top": 12,
+      "width": 281,
+      "height": 300
+    },
+    "car-b": {
+      "left": 80,
+      "top": 12,
+      "width": 285,
+      "height": 300
+    },
+    "pant": {
+      "left": 24,
+      "top": 12,
+      "width": 397,
+      "height": 300
+    },
+    "cone-face": {
+      "left": 110,
+      "top": 12,
+      "width": 225,
+      "height": 300
+    },
+    "look-at-you": {
+      "left": 120,
+      "top": 12,
+      "width": 205,
+      "height": 300
+    }
+  }
+}

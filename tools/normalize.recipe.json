@@ -1,0 +1,31 @@
+{
+  "_comment": [
+    "Asset recipe for the normalised frames. This is the tuning record: the numbers",
+    "here were chosen by eye off assets/preview/calibration.png, and are baked into",
+    "assets/frames/ by tools/normalize.mjs so that every frame is the same canvas",
+    "with the dog at the same size, on the same floor line, at the same centre.",
+    "scale is applied to the source sprite before it is placed on the canvas.",
+    "bust frames are head-and-shoulders; they never stand on the floor, so their",
+    "scale only decides how large the head is inside the same canvas."
+  ],
+  "canvas": { "paddingX": 24, "paddingTop": 12, "paddingFloor": 16 },
+  "frames": {
+    "sit": { "src": "10-sit-a.png", "scale": 1.0 },
+    "stand": { "src": "01-stand.png", "scale": 1.0 },
+    "sit-c": { "src": "13-sit-c.png", "scale": 0.82 },
+    "sit-b": { "src": "11-sit-b.png", "scale": 0.88 },
+    "sit-side": { "src": "09-sit-side.png", "scale": 0.85 },
+    "look-up": { "src": "04-look-up.png", "scale": 0.78 },
+    "sleep": { "src": "17-sleep-sofa.png", "scale": 0.64 },
+    "lie-sofa": { "src": "14-lie-sofa-a.png", "scale": 0.6 },
+    "lie-sofa-b": { "src": "15-lie-sofa-b.png", "scale": 0.55 },
+    "sniff": { "src": "12-sniff.png", "scale": 0.75 },
+    "cone-lying": { "src": "19-cone-lying.png", "scale": 0.6 },
+    "walk": { "src": "05-walk.png", "scale": 0.8 },
+    "car-a": { "src": "06-car-a.png", "scale": 1.0, "bust": true },
+    "car-b": { "src": "07-car-b.png", "scale": 1.0, "bust": true },
+    "pant": { "src": "08-pant.png", "scale": 1.0, "bust": true },
+    "cone-face": { "src": "20-cone-face-removebg-preview.png", "scale": 1.0, "bust": true },
+    "look-at-you": { "src": "18-portrait.png", "scale": 1.0, "bust": true }
+  }
+}

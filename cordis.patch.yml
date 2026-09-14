@@ -1,0 +1,6 @@
+# dsh-labrador bundle patch — mounts the plugin into the profile's config tree.
+# The row id is the handle a user targets to disable or reconfigure the pet,
+# exactly as the shipped reference plugin is disabled by its own 'pet' row.
+- insert:
+    - id: labrador
+      name: 'dsh-labrador'

@@ -1,0 +1,9 @@
+{
+  "name": "labrador-tools",
+  "private": true,
+  "type": "module",
+  "description": "Offline asset tooling for dsh-labrador: crop and background-removal passes over the raw photographs.",
+  "dependencies": {
+    "@imgly/background-removal-node": "^1.4.5"
+  }
+}
