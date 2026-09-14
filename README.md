@@ -1,8 +1,9 @@
 # dsh-labrador
 
 A Labrador that lives in the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) window.
+<img width="1318" height="768" alt="image" src="https://github.com/user-attachments/assets/9dae5cfe-3d65-4c57-a5ff-6a08084e7ab6" />
 
-He is made of **seventeen cut-out photographs of my dog**, driven by a small state machine. He decides for himself what to do, he can be poked, dragged and thrown, he speaks in dog, and he can be tuned from a settings page.
+She is made of **seventeen cut-out photographs of my dog DaiDai**, driven by a small state machine. She decides for herself what to do, she can be poked, dragged and thrown, she speaks in dog, and she can be tuned from a settings page.
 
 > **The frames are photographs of one specific dog.** Installing this plugin puts that dog in your window. If you want your own, replace the frames — see [Using your own photographs](#using-your-own-photographs).
 
@@ -12,16 +13,16 @@ He is made of **seventeen cut-out photographs of my dog**, driven by a small sta
 dsh plugin --profile web add dsh-labrador
 ```
 
-Then restart the harness. He appears in the bottom-right corner of the window.
+Then restart the harness. She appears in the bottom-right corner of the window.
 
-## What he does
+## What she does
 
-- **Decides for himself.** A state machine moves between seven phases — idle, acting, moving, sleeping, reacting, dragging and thrown — and draws from a weighted pool of poses. There are no transitions to a pose that is not reachable from the one he is in: a sleeping dog wakes to idle, never straight into a pose.
+- **Decides for herself.** A state machine moves between seven phases — idle, acting, moving, sleeping, reacting, dragging and thrown — and draws from a weighted pool of poses. There are no transitions to a pose that is not reachable from the one she is in: a sleeping dog wakes to idle, never straight into a pose.
 - **Poses.** Seventeen actions, twelve of which can stand on the floor: sitting, standing, looking up, lying on the sofa, asleep, sniffing, in the car, in a cone.
-- **Being handled.** Click to poke him. Drag to move him, kept inside the window. Throw him and he flies — gravity, a bounce off the walls and floor, friction on landing — and **changes his face on each impact**.
-- **Speaks dog.** `woof.` `hff.` `woof woof!` `yip!` `grrr.` and so on, in a bubble above his head. Vocalisations only; there are no words and so nothing to translate.
-- **Right-click** for a menu: pet him, play any action at once, or send him back to his corner.
-- **Reacts to the pointer only on his own body**, not on the transparent margin around him.
+- **Being handled.** Click to poke her. Drag to move her, kept inside the window. Throw her and she flies — gravity, a bounce off the walls and floor, friction on landing — and **changes her face on each impact**.
+- **Speaks dog.** `woof.` `hff.` `woof woof!` `yip!` `grrr.` and so on, in a bubble above her head. Vocalisations only; there are no words and so nothing to translate.
+- **Right-click** for a menu: pet him, play any action at once, or send her back to his corner.
+- **Reacts to the pointer only on his own body**, not on the transparent margin around her.
 
 ## Settings
 
@@ -75,7 +76,7 @@ Forty-four tests of the state machine and the physics, six of the configuration,
 
 ## Known limitations
 
-- **Movement is disabled.** It needs a walk action with several frames to show a stride, and there is only one walking photograph, so he stays put rather than sliding sideways. A load-time warning says so.
+- **Movement is disabled.** It needs a walk action with several frames to show a stride, and there is only one walking photograph, so she stays put rather than sliding sideways. A load-time warning says so.
 - **One frame is a fragment.** The `sniff` pose lost its head when it was cut out, so it looks like a piece of dog. It is included anyway, at low weight.
 - The pet lives in the harness window only. There is no detached always-on-top desktop window.
 
