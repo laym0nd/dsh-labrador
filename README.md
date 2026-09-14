@@ -1,8 +1,8 @@
 # dsh-labrador
 
-A Labrador that lives in the corner of the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) window.
+A Labrador that lives in the [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) window.
 
-He is made of **seventeen cut-out photographs of one dog**, driven by a small state machine. He decides for himself what to do, he can be poked, dragged and thrown, he speaks in dog, and he can be tuned from a settings page.
+He is made of **seventeen cut-out photographs of my dog**, driven by a small state machine. He decides for himself what to do, he can be poked, dragged and thrown, he speaks in dog, and he can be tuned from a settings page.
 
 > **The frames are photographs of one specific dog.** Installing this plugin puts that dog in your window. If you want your own, replace the frames — see [Using your own photographs](#using-your-own-photographs).
 
@@ -81,4 +81,4 @@ Forty-four tests of the state machine and the physics, six of the configuration,
 
 ## License
 
-MIT for the code. The photographs are the author's own and are not licensed for reuse.
+MIT
