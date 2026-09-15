@@ -2,10 +2,10 @@
 // Run with: node tools/host.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { readConfig, DEFAULT_CONFIG, TEMPERAMENTS } from '../lib/config.js';
+import { readConfig, writeConfig, configPath, DEFAULT_CONFIG, TEMPERAMENTS } from '../lib/config.js';
 
 /** Write a config home and hand back its path. */
 function withConfig(contents) {
@@ -67,4 +67,31 @@ test('malformed JSON is reported, not thrown', () => {
   assert.deepEqual(config, DEFAULT_CONFIG);
   assert.equal(warnings.length, 1);
   rmSync(dir, { recursive: true, force: true });
+});
+
+// The first save used to fail with ENOENT, because nothing had ever created
+// $DSH_HOME/dsh-labrador and the config is written by renaming a sibling temp file.
+test('saving creates its own directory when nothing has yet', () => {
+  const root = mkdtempSync(join(tmpdir(), 'labrador-home-'));
+  const home = join(root, 'dsh-labrador');
+  assert.equal(existsSync(home), false, 'the directory deliberately does not exist yet');
+
+  const written = writeConfig(home, { temperament: 'calm' });
+  assert.equal(written.config.temperament, 'calm');
+  assert.equal(existsSync(configPath(home)), true, 'the file must exist after saving');
+
+  const read = readConfig(home);
+  assert.equal(read.config.temperament, 'calm', 'and it must read back');
+  assert.deepEqual(read.warnings, []);
+  rmSync(root, { recursive: true, force: true });
+});
+
+test('saving keeps only the validated fields', () => {
+  const root = mkdtempSync(join(tmpdir(), 'labrador-home-'));
+  writeConfig(root, { temperament: 'lively', display: 'desktop', nonsense: 42 });
+  const raw = JSON.parse(readFileSync(configPath(root), 'utf8'));
+  assert.equal(raw.temperament, 'lively');
+  assert.equal(raw.display, undefined, 'the obsolete display key must not be written back');
+  assert.equal(raw.nonsense, undefined, 'unknown keys are not carried through');
+  rmSync(root, { recursive: true, force: true });
 });
